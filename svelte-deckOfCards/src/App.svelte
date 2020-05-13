@@ -20,14 +20,47 @@ const getCard = () => {
 	)
 }
 
-let response = 'dette må dere gjøre'
+let response = ''
 
 $: if(card){
-	if(card.code.includes('6')){
-		response = 'waterfall'
+	if(card.code.includes('A')){
+		response = 'Waterfall!'
 	}
-	if(card.code.includes('S')){
-		response = 'Alle med svarte klær må drikke'
+	if(card.code.includes('2')){
+		response = 'Velg en som må drikke!'
+	}
+	if(card.code.includes('3')){
+		response = 'Du må drikke!'
+	}
+	if(card.code.includes('4')){
+		response = 'Alle jenter drikker!'
+	}
+	if(card.code.includes('5')){
+		response = 'Tommelsjef! Når du legger tommelen på bordet, må alle følge og sistemann må drikke. Du er tommelsjef til noen andre trekker en femmer.'
+	}
+	if(card.code.includes('6')){
+		response = 'Alle gutter drikker!'
+	}
+	if(card.code.includes('7')){
+		response = 'Heaven. Når du peker fingeren opp i været, må alle følge og sistemann må drikke. Dette varer til det er din tur igjen.'
+	}
+	if(card.code.includes('8')){
+		response = 'Velg en drikkepartner! Partnerskapet varer ut spillet.'
+	}
+	if(card.code.includes('9')){
+		response = 'Rim! Velg et ord og personen ved siden av deg må rime, slik går det i en sirkel, til rotekoppen må drikke.'
+	}
+	if(card.code.includes('10')){
+		response = 'Kategori! Velg en kategori som fotball, så går du i en sirkel, og alle må si et ord som passer med fotball som: mål, straffe, tippeligaen. Rotekoppen drikker.'
+	}
+	if(card.code.includes('J')){
+		response = 'Regel! Du kan lage hvilken som helst regel som alle må følge, for eksempel at du bare kan drikke med venstre hånd. Alle (inkludert deg) må følge denne regelen resten av spillet, glemmer du deg må du drikke.'
+	}
+	if(card.code.includes('Q')){
+		response = 'Spørsmål! Hvis noen svarer på et spørsmål må de drikke, dette varer ut runden.'
+	}
+	if(card.code.includes('K')){
+		response = 'Sharing is caring! Alle må helle litt av drikken sin i en kopp, sistemann som trekker Konge må drikke hele koppen.'
 	}
 }
 
@@ -39,17 +72,42 @@ $: if(card){
 </script>
 
 <main>
-	<button on:click={getCard}>hent kort</button>
 	{#if card}
-	<div class="card">	
-		<h2>{card.code}</h2>
-		<img src={card.image} alt={card.code} >
-		<p>{response}</p>
+	<div class="card">
+		<p>{response}</p>	
+		<img src={card.image} alt={card.code}>
 	</div>
 	{:else}
-		<p>Klik knapp to get card</p>
+		<p>Trekk et kort for å spille Ring of Fire!</p>
 	{/if}
+	<button on:click={getCard}>Trekk kort</button>
 </main>
 
 <style>
+	:global(body, html){
+		margin: 0;
+		padding: 0;
+	}
+	:global(*){
+		box-sizing: border-box;
+	}
+	main{
+		display: grid;
+		place-items: center;
+		height: 100vh;
+		position: relative;
+	}
+	button{
+		position: absolute;
+		bottom: 10rem;
+		background: black;
+		color: white;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+	p{
+		width: 40vw;
+		height: 20vh;
+		padding: 2rem;
+	}
 </style>
