@@ -50,7 +50,7 @@ $: if(card){
 	if(card.code.includes('9')){
 		response = 'Rim! Velg et ord og personen ved siden av deg må rime, slik går det i en sirkel, til rotekoppen må drikke.'
 	}
-	if(card.code.includes('10')){
+	if(card.code.includes('0')){
 		response = 'Kategori! Velg en kategori som fotball, så går du i en sirkel, og alle må si et ord som passer med fotball som: mål, straffe, tippeligaen. Rotekoppen drikker.'
 	}
 	if(card.code.includes('J')){
@@ -104,6 +104,10 @@ $: if(card){
 		color: white;
 		cursor: pointer;
 		border-radius: 5px;
+	}
+	img{
+		display: grid;
+		place-items: center;
 	}
 	p{
 		width: 40vw;
