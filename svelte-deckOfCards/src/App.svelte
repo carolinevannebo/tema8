@@ -72,14 +72,17 @@ $: if(card){
 </script>
 
 <main>
-	{#if card}
 	<div class="card">
-		<p>{response}</p>	
+	{#if card}
+	<div>
+		<p class="response">{response}</p>	
 		<img src={card.image} alt={card.code}>
 	</div>
 	{:else}
 		<p>Trekk et kort for å spille Ring of Fire!</p>
 	{/if}
+	</div>
+
 	<button on:click={getCard}>Trekk kort</button>
 </main>
 
@@ -100,18 +103,13 @@ $: if(card){
 	button{
 		position: absolute;
 		bottom: 10rem;
-		background: black;
-		color: white;
 		cursor: pointer;
 		border-radius: 5px;
 	}
-	img{
-		display: grid;
-		place-items: center;
+	.card{
+		text-align: center;
 	}
-	p{
-		width: 40vw;
-		height: 20vh;
-		padding: 2rem;
+	.response{
+		padding-bottom: 5rem;
 	}
 </style>
