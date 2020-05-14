@@ -9,7 +9,7 @@ fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
 	.then(json => stock_id = json.deck_id)
 
 //draw a card
-const getCard = () => {
+const getCard = () => { 
 	fetch(`https://deckofcardsapi.com/api/deck/${stock_id}/draw/?count=1`)
 	.then(res=>res.json())
 	.then(json=>
@@ -102,14 +102,16 @@ $: if(card){
 	}
 	button{
 		position: absolute;
-		bottom: 10rem;
+		bottom: 7rem;
 		cursor: pointer;
 		border-radius: 5px;
 	}
 	.card{
 		text-align: center;
+		bottom: 10rem;
 	}
 	.response{
 		padding-bottom: 5rem;
+		width: 40vw;
 	}
 </style>
