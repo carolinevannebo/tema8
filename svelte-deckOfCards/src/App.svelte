@@ -70,7 +70,7 @@ $: if(card){
 //ha en funksjone som evaluerer hva som skal skje 
 
 </script>
-
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 <main>
 	<div class="card">
 	{#if card}
@@ -93,25 +93,35 @@ $: if(card){
 	}
 	:global(*){
 		box-sizing: border-box;
+		font-family: 'Oswald', sans-serif;
 	}
 	main{
 		display: grid;
 		place-items: center;
 		height: 100vh;
 		position: relative;
+		background: rgb(0,0,0);
+		background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(48,54,57,1) 100%);
 	}
 	button{
 		position: absolute;
-		bottom: 7rem;
 		cursor: pointer;
 		border-radius: 5px;
+		border: 1px solid white;
+		background: transparent;
+		color: white;
+		bottom: 10px;
+
 	}
 	.card{
 		text-align: center;
-		bottom: 10rem;
+		bottom: 40px;
 	}
 	.response{
-		padding-bottom: 5rem;
 		width: 40vw;
+		height: 30vh;
+	}
+	p{
+		color: white;
 	}
 </style>
