@@ -70,8 +70,42 @@ $: if(card){
 //ha en funksjone som evaluerer hva som skal skje 
 
 </script>
+
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 <main>
+	<div class="left"></div>
+	<div class="text">
+			<p>{response}</p>
+		</div>
+	<div class="card">
+		{#if card}
+			<img src={card.image} alt={card.code}>
+		{:else}
+			<p>Trekk et kort for å spille Ring of Fire!</p>
+		{/if}
+		</div>
+	<div class="button">
+			<button on:click={getCard}>Trekk kort</button>
+		</div>
+	<div class="right"></div>
+
+
+<!--
+	<div class="gameContainer">
+		<div class="textContainer">
+			<p class="response">{response}</p>	
+		</div>
+		<div class="cardContainer">
+			{#if card}
+			<img src={card.image} alt={card.code}>
+			{:else}
+			<p>Trekk et kort for å spille Ring of Fire!</p>
+			{/if}
+			<button on:click={getCard}>Trekk kort</button>
+		</div>
+	</div>
+-->
+<!--
 	<div class="card">
 	{#if card}
 	<div>
@@ -84,44 +118,81 @@ $: if(card){
 	</div>
 
 	<button on:click={getCard}>Trekk kort</button>
+-->
+
 </main>
 
 <style>
 	:global(body, html){
 		margin: 0;
 		padding: 0;
-	}
-	:global(*){
-		box-sizing: border-box;
-		font-family: 'Oswald', sans-serif;
-	}
-	main{
-		display: grid;
-		place-items: center;
-		height: 100vh;
-		position: relative;
+		align-items: center;
 		background: rgb(0,0,0);
 		background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(48,54,57,1) 100%);
 	}
+	:global(*){
+		/*box-sizing: border-box;*/
+		font-family: 'Oswald', sans-serif;
+	}
+
+    .left { grid-area: left; }
+    .text { grid-area: text; text-align: center;}
+    .card { grid-area: card; }
+    .button { grid-area: button;}
+    .right { grid-area: right; }
+
+	main{
+		display: grid;
+		/*place-items: center;
+		height: 100vh;
+		position: relative;*/
+		grid-template-areas:
+        'left text right'
+        'left text right'
+        'left card right'
+        'left card right'
+        'left button right';
+      	grid-gap: 10px;
+      	padding: 10px;
+	}
+
+	 main > div {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+      color: black;
+    }
+
+	 main > div > p {
+        color: white;
+		font-size: 2rem;
+    }
+
+	 main > img {
+        width: 100%
+    }
+
 	button{
-		position: absolute;
+		/*position: absolute;*/
 		cursor: pointer;
 		border-radius: 5px;
 		border: 1px solid white;
 		background: transparent;
 		color: white;
-		bottom: 10px;
+		/*bottom: 10px;*/
+		text-align: center;
 
 	}
-	.card{
-		text-align: center;
-		bottom: 40px;
-	}
+	/*
 	.response{
+		top: 20vh;
 		width: 40vw;
 		height: 30vh;
+		bottom: 20vh;
+		font-size: 2rem;
 	}
 	p{
 		color: white;
-	}
+		font-size: 2rem;
+	}*/
 </style>
