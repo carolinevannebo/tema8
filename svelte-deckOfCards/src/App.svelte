@@ -73,6 +73,9 @@ $: if(card){
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 <main>
+	<div class="header">
+			<h1>Ring of Fire</h1>
+		</div>
 	<div class="left"></div>
 	<div class="text">
 			<p>{response}</p>
@@ -131,68 +134,60 @@ $: if(card){
 		background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(48,54,57,1) 100%);
 	}
 	:global(*){
-		/*box-sizing: border-box;*/
 		font-family: 'Oswald', sans-serif;
 	}
-
-    .left { grid-area: left; }
+	.header { grid-area: header;}
+    .left { grid-area: left;}
     .text { grid-area: text; text-align: center;}
-    .card { grid-area: card; }
+    .card { grid-area: card;}
     .button { grid-area: button;}
-    .right { grid-area: right; }
+    .right { grid-area: right;}
 
 	main{
 		display: grid;
-		/*place-items: center;
-		height: 100vh;
-		position: relative;*/
 		grid-template-areas:
+		'left header right'
         'left text right'
         'left text right'
         'left card right'
         'left card right'
         'left button right';
       	grid-gap: 10px;
-      	padding: 10px;
+		height: 100%;
 	}
 
 	 main > div {
-      text-align: center;
-      padding: 20px 0;
-      font-size: 30px;
-      color: black;
+		 text-align: center;
+		 padding: 20px 0;
+		 color: black;
     }
 
 	 main > div > p {
         color: white;
 		font-size: 2rem;
     }
+	main > div > h1 {
+		color: white;
+		font-size: 2.5rem;
+	}
 
 	 main > img {
         width: 100%
     }
 
 	button{
-		/*position: absolute;*/
 		cursor: pointer;
 		border-radius: 5px;
-		border: 1px solid white;
+		border: 1.5px solid white;
 		background: transparent;
 		color: white;
-		/*bottom: 10px;*/
 		text-align: center;
+		font-size: 1.5rem;
 
 	}
-	/*
-	.response{
-		top: 20vh;
-		width: 40vw;
-		height: 30vh;
-		bottom: 20vh;
-		font-size: 2rem;
-	}
-	p{
-		color: white;
-		font-size: 2rem;
-	}*/
+
 </style>
+
+<!--Spør Simon om:
+hvordan response teksten kan holde seg innenfor sin grid/ ikke endre størrelsen på griden og generelt få en bedre plassering, text-wrap?
+hvordan vi skal levere, er mappen innafor?-->
