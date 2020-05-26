@@ -132,6 +132,9 @@ $: if(card){
 		align-items: center;
 		background: rgb(0,0,0);
 		background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(48,54,57,1) 100%);
+		background-repeat:no-repeat;
+    	background-size: cover;
+   		background-attachment: fixed;
 	}
 	:global(*){
 		font-family: 'Oswald', sans-serif;
@@ -183,11 +186,11 @@ $: if(card){
 		color: white;
 		text-align: center;
 		font-size: 1.5rem;
-
 	}
 
 </style>
 
 <!--Spør Simon om:
 hvordan response teksten kan holde seg innenfor sin grid/ ikke endre størrelsen på griden og generelt få en bedre plassering, text-wrap?
+bakgrunn når responsiv, tror jeg fikset det?
 hvordan vi skal levere, er mappen innafor?-->
