@@ -1,7 +1,9 @@
 <script>
 
+import {scale} from 'svelte/transition'
 let stock_id
 let card
+let start = true
 
 //get card stock
 fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
@@ -10,6 +12,8 @@ fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
 
 //draw a card
 const getCard = () => { 
+	card = null
+	start = false
 	fetch(`https://deckofcardsapi.com/api/deck/${stock_id}/draw/?count=1`)
 	.then(res=>res.json())
 	.then(json=>
@@ -82,9 +86,11 @@ $: if(card){
 		</div>
 	<div class="card">
 		{#if card}
-			<img src={card.image} alt={card.code}>
+			<img src={card.image} alt={card.code} in:scale>
 		{:else}
-			<p>Trekk et kort for å spille Ring of Fire!</p>
+			{#if start}
+				 <p>Trekk et kort for å spille Ring of Fire!</p>
+			{/if}
 		{/if}
 		</div>
 	<div class="button">
@@ -139,12 +145,16 @@ $: if(card){
 	:global(*){
 		font-family: 'Oswald', sans-serif;
 	}
-	.header { grid-area: header;}
+	.header { grid-area: header; height: 10vh;}
     .left { grid-area: left;}
-    .text { grid-area: text; text-align: center;}
-    .card { grid-area: card;}
-    .button { grid-area: button;}
+    .text { grid-area: text; text-align: center; height: 20vh;}
+    .card { grid-area: card; height: 25vh;}
+    .button { grid-area: button; height: 10vh;}
     .right { grid-area: right;}
+
+	.left, .right{
+		width: 25vw;
+	}
 
 	main{
 		display: grid;
@@ -156,7 +166,7 @@ $: if(card){
         'left card right'
         'left button right';
       	grid-gap: 10px;
-		height: 100%;
+		height: 100vh;
 	}
 
 	 main > div {
