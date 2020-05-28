@@ -185,7 +185,7 @@ $: if(card){
 	}
 
 	 main > img {
-        width: 100%
+        width: 100%;
     }
 
 	button{
