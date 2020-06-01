@@ -21,3 +21,11 @@ npm start
 
 Setup [Electron with Svelte](https://fireship.io/snippets/svelte-electron-setup) from scratch. 
 Build cool projects with [Electron](https://fireship.io/tags/electron). 
+
+# Konseptbeskrivelse
+
+Ring of Fire er originalt en drikkelek hvor man bruker en kortstokk.
+For denne temaoppgaven har jeg valgt å digitalisere leken til en app.
+Alt man trenger for å spille er selve appen, noe godt i glasset og godt humør.
+Man trykker på knappen "Trekk kort", da vil et kort vises med beskrivelse av hva man må gjøre.
+Målgruppen for denne appen er festglade unge mennesker, 18-30 år.
