@@ -29,3 +29,4 @@ For denne temaoppgaven har jeg valgt å digitalisere leken til en app.
 Alt man trenger for å spille er selve appen, noe godt i glasset og godt humør.
 Man trykker på knappen "Trekk kort", da vil et kort vises med beskrivelse av hva man må gjøre.
 Målgruppen for denne appen er festglade unge mennesker, 18-30 år.
+Anbefaler å bruke appen i fullskjerm.
