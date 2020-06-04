@@ -28,7 +28,7 @@ let response = ''
 
 $: if(card){
 	if(card.code.includes('A')){
-		response = 'Waterfall!'
+		response = 'Waterfall! Alle må begynne å drikke likt, når du slutter å drikke kan personen til venstre for deg slutte, men ikke før. Slik går det i ring helt til siste person slutter å drikke.'
 	}
 	if(card.code.includes('2')){
 		response = 'Velg en som må drikke!'
